@@ -65,6 +65,7 @@
 
 .large-text {
     font-size: 24px;
+    line-height: 25px;
 }
 
 .ex-lg-text {
@@ -83,38 +84,7 @@
 p {
     margin-bottom: 0;
 }
-
 .card-title {
     margin: 5px 0 0 10px;
     text-align: left;
-}
-
-.password {
-    align-items: center;
-    display: flex;
-    height: 66px;
-    border-radius: 5px;
-    margin: 5px;
-    padding: 15px;
-    border: 0;
-}
-
-.password-info-group {
-    text-align: left;
-}
-
-.password-group {
-    align-self: center;
-    display: flex;
-    max-width: 370px;
-    height: 32px;
-    background-color: white;
-    border-radius: 5px;
-}
-
-.password-row {
-    /* width: 100%; */
-    flex: 1;
-    margin: 0;
-    justify-content: space-between;
 }

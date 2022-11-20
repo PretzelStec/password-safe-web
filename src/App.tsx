@@ -1,8 +1,8 @@
-import React, { useState } from "react";
-import logo from "./logo.svg";
-import "./App.css";
+import { useState } from "react";
 import { getSavedPasswords, getUser } from "./mocks/get-user-data";
 import moment from "moment";
+import "./App.css";
+import { Password } from "./password/password";
 
 function App() {
 	const [userData, setUserData] = useState(getUser());
@@ -45,36 +45,11 @@ function App() {
 					<div className="card-title large-text">
 						Quick Access ({1})
 					</div>
-					<div className="password bg-gray">
-						<div className="password-row row">
-							<div className="options"></div>
-							<div className="col">
-								<div className="password-info-group col w-text">
-									<div>{passwords[0].title}</div>
-									<div>{passwords[0].email}</div>
-								</div>
-							</div>
-							<div className="col password-group">hello</div>
-						</div>
-					</div>
-					<div className="password bg-gray">
-						<div className="password-row row">
-							<div className="options"></div>
-							<div className="col">
-								<div className="password-info-group col w-text">
-									<div>{passwords[0].title}</div>
-									<div>{passwords[0].email}</div>
-								</div>
-							</div>
-							<div className="col password-group">hello</div>
-						</div>
-					</div>
+					<Password password={passwords[0]} />
 				</div>
-
 				<div className="card bg-green">
-					<div className="card-header large-text">
-						Quick Access ({1})
-					</div>
+					<div className="card-title large-text">All ({1})</div>
+					<Password password={passwords[0]} />
 				</div>
 			</div>
 		</div>
