@@ -5,8 +5,8 @@ import "./App.css";
 import { Password } from "./password/password";
 
 function App() {
-	const [userData, setUserData] = useState(getUser());
-	const [passwords, setPasswords] = useState(getSavedPasswords());
+	const [userData] = useState(getUser());
+	const [passwords] = useState(getSavedPasswords());
 
 	return (
 		// TODO: break down into components
@@ -33,6 +33,7 @@ function App() {
 							</div>
 							<div className="profile col-3">
 								<img
+									alt="profile"
 									className="profile-image"
 									src={userData.profileImg}
 								/>
