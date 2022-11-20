@@ -1,0 +1,120 @@
+.App {
+    width: 100%;
+    height: 100vh;
+    font-family: "monocraft", Arial, Helvetica, sans-serif;
+}
+
+.card {
+    display: flex;
+    margin-top: 20px;
+}
+
+.header-card {
+    justify-content: center;
+    height: 120px;
+    margin: 0 10px 0 10px;
+}
+
+.bg-purple {
+    background-color: #ACBEFF;
+}
+
+.border-purple {
+    border: #ACBEFF 5px solid;
+    box-sizing: border-box;
+}
+
+.bg-gray {
+    background-color: #3A3A3A;
+}
+
+.w-text {
+    color: white;
+}
+
+.bg-blue {
+    background-color: #ACFAFF;
+}
+
+.bg-green {
+    background-color: #ACFFB9;
+}
+
+.app-col {
+    margin: auto;
+    text-align: center;
+    max-width: 1100px;
+}
+
+.profile-image {
+    height: 80px;
+    width: 80px;
+}
+
+.profile-image {
+    float: right;
+}
+
+.small-text {
+    font-size: 13px;
+}
+
+.medium-text {
+    font-size: 20px;
+}
+
+.large-text {
+    font-size: 24px;
+}
+
+.ex-lg-text {
+    font-size: 32px;
+    line-height: 33px;
+}
+
+.faded-text {
+    color: #AEAEAE;
+}
+
+.name {
+    text-align: left;
+}
+
+p {
+    margin-bottom: 0;
+}
+
+.card-title {
+    margin: 5px 0 0 10px;
+    text-align: left;
+}
+
+.password {
+    align-items: center;
+    display: flex;
+    height: 66px;
+    border-radius: 5px;
+    margin: 5px;
+    padding: 15px;
+    border: 0;
+}
+
+.password-info-group {
+    text-align: left;
+}
+
+.password-group {
+    align-self: center;
+    display: flex;
+    max-width: 370px;
+    height: 32px;
+    background-color: white;
+    border-radius: 5px;
+}
+
+.password-row {
+    /* width: 100%; */
+    flex: 1;
+    margin: 0;
+    justify-content: space-between;
+}
