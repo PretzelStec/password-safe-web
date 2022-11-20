@@ -1,6 +1,6 @@
 .App {
+    height: 100%;
     width: 100%;
-    height: 100vh;
     font-family: "monocraft", Arial, Helvetica, sans-serif;
 }
 
@@ -71,6 +71,29 @@
 .ex-lg-text {
     font-size: 32px;
     line-height: 33px;
+}
+
+@media (max-width: 720px) {
+    .small-text {
+        font-size: 12px;
+    }
+    .medium-text {
+        font-size: 13px;
+    }
+    .large-text {
+        font-size: 20px;
+    }
+    .ex-lg-text {
+        font-size: 20px;
+    }
+    .head-card-container{
+        flex-direction: column;
+        margin: 0;
+    }
+    .header-card {
+        margin: 0;
+        margin-top: 15px;
+    }
 }
 
 .faded-text {

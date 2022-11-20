@@ -13,8 +13,8 @@ export function Password({ password }: PasswordProps) {
 
 	return (
 		<div className="password bg-gray">
-			<div className="password-row row">
-				<div className="col-5">
+			<div className="password-row">
+				<div className="col-5 detail-group">
 					<div className="row">
 						<div className="options col-1">
 							<BsThreeDotsVertical
