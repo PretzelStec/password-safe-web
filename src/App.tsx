@@ -1,12 +1,41 @@
-import { useState } from "react";
-import { getSavedPasswords, getUser } from "./mocks/get-user-data";
+import { useEffect, useState } from "react";
+import {
+	getSavedPasswords,
+	getUser,
+	SavedPassword,
+} from "./mocks/get-user-data";
 import moment from "moment";
 import "./App.css";
-import { Password } from "./password/password";
+import { getSafe, UserData, Password } from "./service/safe-service";
+import { Password as PasswordComponent } from "./password/password";
+import { useCookies } from "react-cookie";
 
 function App() {
-	const [userData] = useState(getUser());
-	const [passwords] = useState(getSavedPasswords());
+	const [userData, setUserData] = useState<UserData>(getUser());
+	const [passwords, setPasswords] = useState<Password[]>([]);
+	const [quickAccess, setQuickAccess] = useState<Password[]>([]);
+	const [cookies] = useCookies();
+
+	useEffect(() => {
+		getSafe(cookies.pwsjwt)
+			.then((data) => {
+				setUserData(data.userData);
+				setPasswords(data.passwords);
+			})
+			.catch((err) => {
+				console.log(err);
+			});
+	}, []);
+
+	useEffect(() => {
+		console.log("hello");
+		if (passwords) {
+			const quickAccessPasswords = passwords.filter((password) => {
+				return password.isQuickAccess;
+			});
+			setQuickAccess(quickAccessPasswords);
+		}
+	}, [passwords]);
 
 	return (
 		// TODO: break down into components
@@ -17,7 +46,9 @@ function App() {
 						<div>
 							Last Login:{" "}
 							<span className="large-text">
-								{moment(userData.lastLogin).format("MM/DD/YY")}
+								{moment(userData.previousLogin).format(
+									"MM/DD/YY"
+								)}
 							</span>
 						</div>
 					</div>
@@ -44,13 +75,19 @@ function App() {
 
 				<div className="card bg-blue">
 					<div className="card-title large-text">
-						Quick Access ({1})
+						Quick Access ({quickAccess.length})
 					</div>
-					<Password password={passwords[0]} />
+					{quickAccess.map((pass) => (
+						<PasswordComponent password={pass} />
+					))}
 				</div>
 				<div className="card bg-green">
-					<div className="card-title large-text">All ({1})</div>
-					<Password password={passwords[0]} />
+					<div className="card-title large-text">
+						All ({passwords.length})
+					</div>
+					{passwords.map((pass) => (
+						<PasswordComponent password={pass} />
+					))}
 				</div>
 			</div>
 		</div>

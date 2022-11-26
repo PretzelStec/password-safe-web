@@ -1,10 +1,11 @@
 import { useState } from "react";
 import { BsThreeDotsVertical, BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
 import { SavedPassword } from "../mocks/get-user-data";
+import { Password as PasswordType } from "../service/safe-service";
 import "./password.css";
 
 interface PasswordProps {
-	password: SavedPassword;
+	password: PasswordType;
 }
 
 export function Password({ password }: PasswordProps) {
@@ -26,7 +27,7 @@ export function Password({ password }: PasswordProps) {
 							/>
 						</div>
 						<div className="password-info-group w-text col-11">
-							<div className="large-text">{password.title}</div>
+							<div className="large-text">{password.url}</div>
 							<div className="faded-text small-text">
 								{password.email}
 							</div>
@@ -37,7 +38,7 @@ export function Password({ password }: PasswordProps) {
 					<input
 						className="password-input"
 						type={passShown ? "text" : "password"}
-						value={password.encryptedPass}
+						value={password.password}
 						disabled={true}
 					></input>
 

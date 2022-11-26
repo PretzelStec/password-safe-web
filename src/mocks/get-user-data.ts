@@ -1,14 +1,4 @@
-export interface AppData {
-	user: User;
-	passwordList: SavedPassword[];
-}
-
-export interface User {
-	lastName: string;
-	firstName: string;
-	lastLogin: Date;
-	profileImg: string;
-}
+import { UserData } from "../service/safe-service";
 
 export interface SavedPassword {
 	title: string;
@@ -19,8 +9,11 @@ export interface SavedPassword {
 	isQuickAccess: boolean;
 }
 
-export function getUser(): User {
+export function getUser(): UserData {
 	return {
+		userId: "something",
+		email: "email@email.com",
+		previousLogin: new Date(),
 		lastName: "Last",
 		firstName: "First",
 		lastLogin: new Date(),
@@ -37,6 +30,14 @@ export function getSavedPasswords(): SavedPassword[] {
 			encryptedPass: "testEncryptedPassword$",
 			dateModified: new Date(),
 			isQuickAccess: true,
+		},
+		{
+			title: "Test Entry 2",
+			email: "test@test.com",
+			userName: "testUserName2",
+			encryptedPass: "testEncryptedPassword2",
+			dateModified: new Date(),
+			isQuickAccess: false,
 		},
 	];
 }
