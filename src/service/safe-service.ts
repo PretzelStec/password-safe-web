@@ -36,7 +36,10 @@ export interface NewPassword {
 
 export async function getSafe(token: string): Promise<Safe> {
 	const response = await axios.get(
-		"https://api.jacobstec.dev/password-safe-api/v1/getDashboard"
+		"https://api.jacobstec.dev/password-safe-api/v1/getDashboard",
+		{
+			withCredentials: true,
+		}
 	);
 	return response.data;
 }
