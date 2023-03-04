@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { BsThreeDotsVertical, BsEyeFill, BsEyeSlashFill } from "react-icons/bs";
-import { SavedPassword } from "../mocks/get-user-data";
-import { Password as PasswordType } from "../service/safe-service";
+// import { SavedPassword } from "../../mocks/get-user-data";
+import { decrypt, Password as PasswordType } from "../../service/safe-service";
 import "./password.css";
 
 interface PasswordProps {
@@ -27,9 +27,9 @@ export function Password({ password }: PasswordProps) {
 							/>
 						</div>
 						<div className="password-info-group w-text col-11">
-							<div className="large-text">{password.url}</div>
+							<div className="large-text">{decrypt(password.url)}</div>
 							<div className="faded-text small-text">
-								{password.email}
+								{decrypt(password.email)}
 							</div>
 						</div>
 					</div>
@@ -38,7 +38,7 @@ export function Password({ password }: PasswordProps) {
 					<input
 						className="password-input"
 						type={passShown ? "text" : "password"}
-						value={password.password}
+						value={ decrypt(password.password) }
 						disabled={true}
 					></input>
 
@@ -46,6 +46,7 @@ export function Password({ password }: PasswordProps) {
 						<BsEyeSlashFill
 							color="white"
 							size="24"
+							className="password-show-icon"
 							onClick={() => {
 								setPassShown(!passShown);
 							}}
@@ -54,6 +55,7 @@ export function Password({ password }: PasswordProps) {
 						<BsEyeFill
 							color="white"
 							size="24"
+							className="password-show-icon"
 							onClick={() => {
 								setPassShown(!passShown);
 							}}

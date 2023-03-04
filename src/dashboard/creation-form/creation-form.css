@@ -1,0 +1,12 @@
+.creation-entry {
+    /* float: right; */
+    position: absolute;
+    right: 5px;
+    border-radius: 4px;
+    max-width: 275px;
+}
+
+.form-group {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
