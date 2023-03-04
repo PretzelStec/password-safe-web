@@ -55,7 +55,10 @@ export async function addPassword(password: NewPassword) {
 	};
 	const response = await axios.post(
 		"https://api.jacobstec.dev/password-safe-api/v1/addPassword",
-		encryptedPassword
+		encryptedPassword,
+		{
+			withCredentials: true,
+		}
 	);
 	return response.data;
 }
