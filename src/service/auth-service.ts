@@ -1,5 +1,3 @@
-import axios from "axios";
-
 export function authenticate(email: string, password: string) {
 	try {
 		return fetch(

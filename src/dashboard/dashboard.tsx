@@ -1,14 +1,9 @@
 import { useEffect, useState } from "react";
-import {
-	getSavedPasswords,
-	getUser,
-	SavedPassword,
-} from "../mocks/get-user-data";
+import { getUser } from "../mocks/get-user-data";
 import moment from "moment";
 import "./dashboard.css";
 import { getSafe, UserData, Password } from "../service/safe-service";
 import { Password as PasswordComponent } from "./password/password";
-import { useCookies } from "react-cookie";
 import { CreationForm } from "./creation-form/creation-form";
 
 export function Dashboard({ token }: { token: string }) {
@@ -16,7 +11,6 @@ export function Dashboard({ token }: { token: string }) {
 	const [passwords, setPasswords] = useState<Password[]>([]);
 	const [quickAccess, setQuickAccess] = useState<Password[]>([]);
 	const [showCreation, setShowCreation] = useState(false);
-	const [cookies] = useCookies();
 
 	const loadSafe = () => {
 		getSafe(token)
@@ -32,6 +26,7 @@ export function Dashboard({ token }: { token: string }) {
 
 	useEffect(() => {
 		loadSafe();
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(() => {

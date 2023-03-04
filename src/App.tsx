@@ -12,12 +12,14 @@ function App() {
 		if (cookies.pwsjwt) {
 			setToken(cookies.pwsjwt);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, []);
 
 	useEffect(() => {
 		if (token !== cookies.pwsjwt) {
 			setCookie("pwsjwt", token);
 		}
+		// eslint-disable-next-line react-hooks/exhaustive-deps
 	}, [token]);
 
 	if (token === undefined) {

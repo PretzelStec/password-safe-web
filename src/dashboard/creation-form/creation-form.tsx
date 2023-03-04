@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useCookies } from "react-cookie";
 import { addPassword } from "../../service/safe-service";
 import "./creation-form.css";
 
